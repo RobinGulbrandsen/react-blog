@@ -1,0 +1,11 @@
+{
+  "name": "react-blog",
+  "version": "1.0.0",
+  "description": "Blog implementation with MERN stack",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Robin Gulbrandsen",
+  "license": "MIT"
+}
