@@ -1,8 +1,9 @@
 import React from 'react';
+import ArticleList from '../containers/articleList';
 
 const Home = () => (
   <div>
-    <h1>Home Page!</h1>
+    <ArticleList />
   </div>
 );
 

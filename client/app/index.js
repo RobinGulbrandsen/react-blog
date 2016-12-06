@@ -20,9 +20,10 @@ require('bootstrap/dist/css/bootstrap.css');
 require('../assets/bootstrap/superhero.min.css');
 require('../assets/styles.scss');
 
-import Main from './pages/main';
-import Home from './pages/home';
+import Article from './pages/article';
 import About from './pages/about';
+import Home from './pages/home';
+import Main from './pages/main';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -31,6 +32,7 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path='home' component={Home} />
         <Route path='about' component={About} />
+        <Route path='article' component={Article} />
       </Route>
     </Router>
   </Provider>,

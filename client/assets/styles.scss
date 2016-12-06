@@ -1,9 +1,24 @@
-p {
-  text-align: justify;
+code {
+  white-space: pre-line;
 }
 
 img {
   width: 100%;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: justify;
+}
+
+.article {
+  h2 {
+    margin-top: 0px;
+  }
 }
 
 .well {
@@ -11,4 +26,8 @@ img {
     padding-top: 0px;
     margin-top: 0px;
   }
+}
+
+.pagecount {
+  text-align: center;
 }
