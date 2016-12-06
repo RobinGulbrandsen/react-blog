@@ -9,15 +9,20 @@ import createLogger from 'redux-logger';
 import allReducers from './reducers';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import Main from './pages/main';
-import Home from './pages/home';
-import About from './pages/about';
-
 const logger = createLogger();
 const store = createStore(
   allReducers,
   applyMiddleware(thunk, promise, logger)
 );
+
+// CSS
+require('bootstrap/dist/css/bootstrap.css');
+require('../assets/bootstrap/superhero.min.css');
+require('../assets/styles.scss');
+
+import Main from './pages/main';
+import Home from './pages/home';
+import About from './pages/about';
 
 ReactDOM.render(
   <Provider store={store}>

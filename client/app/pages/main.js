@@ -1,5 +1,4 @@
 import React from 'react';
-require('../../assets/styles.scss');
 
 export default class Main extends React.Component {
   render() {
