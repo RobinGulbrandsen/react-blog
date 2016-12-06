@@ -1,7 +1,6 @@
-export default (state = null, action) => {
-
+export default function (state = null, action) {
   switch (action.type) {
-    case 'ARTICLE_SELECTED': return action.payload; break;
+    case 'GET_ARTICLE': return action.payload; break;
   }
   return state;
 }

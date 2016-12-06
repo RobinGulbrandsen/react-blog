@@ -1,14 +1,18 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {getArticle} from '../actions/articleAction';
 
 class Article extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor({ params: { id }, location: { query } }) {
+    super();
+
+    this.id = query.id;
   }
 
   componentDidMount() {
-    console.log('mounted');
+    this.props.getArticle(this.id);
+    console.log('mounted', this.id);
   }
 
   render() {
@@ -42,7 +46,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch){
-    return {};
+  return bindActionCreators({getArticle: getArticle}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Article);
