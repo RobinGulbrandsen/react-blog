@@ -11,7 +11,7 @@ export const getArticle = (id) => {
         payload: res.data
       });
     }).catch((error) => {
-      if (error.response.status === 404) {
+      if (error.response && error.response.status === 404) {
         hashHistory.push('404');
       }
     });
@@ -28,7 +28,7 @@ export const getArticles = () => {
         payload: res.data
       });
     }).catch((error) => {
-      if (error.response.status === 404) {
+      if (error.response && error.response.status === 404) {
         //hashHistory.push('404');
       }
     });

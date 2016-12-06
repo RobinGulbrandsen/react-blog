@@ -13,6 +13,10 @@ class Article extends React.Component {
     this.props.getArticle(this.id);
   }
 
+  createMarkup() {
+    return {__html: this.props.article.content};
+  }
+
   render() {
     if (!this.props.article) {
       return (
@@ -30,9 +34,7 @@ class Article extends React.Component {
           {this.props.article.createdAt}
         </p>
         <hr />
-        <p>
-          {this.props.article.content}
-        </p>
+        <div dangerouslySetInnerHTML={this.createMarkup()}></div>
       </div>
     );
   }
