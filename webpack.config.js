@@ -11,20 +11,20 @@ module.exports = {
   entry: './client/app/index.js',
   module: {
     loaders: [
-    {
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/
-    },
-    { 
-      test: /\.css$/, 
-      loader: "style-loader!css-loader" 
-    },
-    {
-      test: /\.scss/,
-      loader: 'style-loader!css-loader!sass-loader'
-    },
-    {
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        exclude: /node_modules/
+      },
+      { 
+        test: /\.css$/, 
+        loader: "style-loader!css-loader" 
+      },
+      {
+        test: /\.scss/,
+        loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
         loader: 'url?limit=10000&mimetype=application/font-woff'
       },
@@ -43,10 +43,10 @@ module.exports = {
     ]
   },
   output: {
-    path: 'client',
+    path: 'public',
     filename: 'js/react-blog.min.js'
   },
   plugins: [
-  new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin()
   ]
 };
