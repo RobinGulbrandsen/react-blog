@@ -1,13 +1,25 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import { Link } from 'react-router';
 import {connect} from 'react-redux';
+import {getArticles} from '../actions/articleAction';
 
 import ArticleListEntry from './articleListEntry';
 
 import { Well, Row, Col } from 'react-bootstrap';
 
 class Articles extends React.Component {
+  componentDidMount() {
+    this.props.getArticles();  
+  }
+
   render () {
+    if (!this.props.articles) {
+      return (
+        <h1>Loading... please wait</h1>
+      );
+    }
+
     return (
       <div>
         {this.props.articles.map((article) => {
@@ -38,7 +50,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch){
-  return {};
+  return bindActionCreators({getArticles: getArticles}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Articles);
