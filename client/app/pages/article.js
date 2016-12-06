@@ -1,24 +1,48 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-const Article = () => (
-  <div>
-    <h1>Events with nested components in React.js</h1>
-    <p><span className='glyphicon glyphicon-time'></span> Tuesday 4th of October 2016
-    </p>
-    <hr />
-    <p>
-    This is a tiny project that only illustrates this one aspect of React: How to pass events through to the correct component.All the code for this demo application is open source on github. Feel free to jump over, fork it and take a look at it.
-    </p>
-    
-    <pre>
-    <code>
-{`public static void main(String[] args) {
-  System.out.println(\"Hello World!\");
-}`}
-    </code>
-    </pre>
+class Article extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-    </div>
-);
+  componentDidMount() {
+    console.log('mounted');
+  }
 
-export default Article;
+  render() {
+    if (!this.props.article) {
+      return (
+        <div>
+          <h1>Loading.. please wait</h1>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <h1>{this.props.article.title}</h1>
+        <p><span className='glyphicon glyphicon-time'></span>
+        {this.props.article.createdAt}
+        </p>
+        <hr />
+        <p>
+          {this.props.article.content}
+        </p>
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    article: state.article
+  };
+}
+
+function matchDispatchToProps(dispatch){
+    return {};
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Article);
