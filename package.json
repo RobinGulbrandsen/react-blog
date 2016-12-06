@@ -5,11 +5,13 @@
   "main": "server/server.js",
   "scripts": {
     "test": "mocha",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "server": "nodemon -w server/src --exec \"babel-node server/src/server.js --presets es2015,stage-0\""
   },
   "author": "Robin Gulbrandsen",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.1",
@@ -20,6 +22,7 @@
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "expect": "^1.20.1",
+    "mysql": "^2.12.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.8.0",
     "react": "^15.1.0",
@@ -33,6 +36,7 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.0",
+    "sequelize": "^3.27.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
