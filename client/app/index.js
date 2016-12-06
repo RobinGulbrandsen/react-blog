@@ -24,6 +24,7 @@ import Article from './pages/article';
 import About from './pages/about';
 import Home from './pages/home';
 import Main from './pages/main';
+import FileNotFound from './pages/error/fileNotFound';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path='home' component={Home} />
         <Route path='about' component={About} />
         <Route path='article' component={Article} />
+        <Route path='404' component={FileNotFound} />
       </Route>
     </Router>
   </Provider>,

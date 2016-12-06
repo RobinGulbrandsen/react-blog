@@ -6,13 +6,11 @@ import {getArticle} from '../actions/articleAction';
 class Article extends React.Component {
   constructor({ params: { id }, location: { query } }) {
     super();
-
     this.id = query.id;
   }
 
   componentDidMount() {
     this.props.getArticle(this.id);
-    console.log('mounted', this.id);
   }
 
   render() {
@@ -27,8 +25,9 @@ class Article extends React.Component {
     return (
       <div>
         <h1>{this.props.article.title}</h1>
-        <p><span className='glyphicon glyphicon-time'></span>
-        {this.props.article.createdAt}
+        <p>
+          <span className='glyphicon glyphicon-time'> </span>
+          {this.props.article.createdAt}
         </p>
         <hr />
         <p>
