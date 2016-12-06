@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "client": "webpack-dev-server",
-    "server": "nodemon -w server/src --exec \"babel-node server/src/server.js --presets es2015,stage-0\""
+    "server": "nodemon -w server/src --exec \"babel-node server/src/server.js --presets es2015,stage-0\"",
+    "prod": "webpack && babel-node server/src/server.js --presets es2015,stage-0"
   },
   "author": "Robin Gulbrandsen",
   "license": "MIT",
