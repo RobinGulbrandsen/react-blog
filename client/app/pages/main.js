@@ -7,8 +7,8 @@ import { Navbar,
          Row,
          Col } from 'react-bootstrap';
 
-import AboutMeSmall from '../containers/about-me-small';
-import TopArticles from '../containers/top-articles';
+import AboutMeSmall from '../containers/aboutMeSmall';
+import TopArticles from '../containers/topArticles';
 
 export default class Main extends React.Component {
   render() {
