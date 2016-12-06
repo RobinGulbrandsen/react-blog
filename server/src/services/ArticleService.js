@@ -6,6 +6,10 @@ class ArticleService {
     this.repo = new ArticleRepository(ArticleModel);
   }
 
+  read(id) {
+    return this.repo.read(id);
+  }
+
   readAll() {
     return this.repo.readAll();
   }

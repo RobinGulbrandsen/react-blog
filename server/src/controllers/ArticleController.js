@@ -8,14 +8,23 @@ module.exports = {
   },
 
   read: (req, res) => {
-    res.send('read one');
+    const id = req.params.id;
+
+    new ArticleService().read(id).then((result) => {
+      if (result) {
+        return res.send(result);  
+      }
+      return HttpStatus.NOT_FOUND(res);
+    }).catch((error) => {
+      return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
+    });
   },
 
   readAll: (req, res) => {
     new ArticleService().readAll().then((results) => {
       return res.send(results);
     }).catch((error) => {
-      return res.send(error);
+      return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
     });
   },
 

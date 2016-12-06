@@ -1,4 +1,3 @@
-
 module.exports = {
   BAD_REQUEST: function(res, msg) {
     return res.status(400).send({
@@ -17,7 +16,7 @@ module.exports = {
   NOT_FOUND: function(res) {
     return res.status(404).send({
       'status': 404,
-      'message': 'File not found'
+      'message': 'Resource not found'
     });
   },
 

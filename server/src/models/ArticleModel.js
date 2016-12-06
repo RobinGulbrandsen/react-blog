@@ -4,7 +4,7 @@ import db from '../config/databaseConnection';
 const Article = db.define('article', {
   titleId: {
     type: Sequelize.STRING,
-    field: 'title_id',
+    field: 'id',
     primaryKey: true
   },
   title: Sequelize.STRING,
