@@ -20,15 +20,31 @@ module.exports = {
     });
   },
 
+  /**
+    Type: visited, admin
+  */
   readAll: (req, res) => {
+    const type = req.query.type || 'all';
     const page = Number(req.query.page) || 1;
     const count = Number(req.query.count) || 3;
 
-    new ArticleService().readAll(page, count).then((results) => {
-      return res.send(results);
-    }).catch((error) => {
-      return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
-    });
+    if (type === 'all') {
+      const fields = ['id', 'title', 'createdAt', 'intro'];
+      new ArticleService().readAll(page, count, fields).then((results) => {
+        return res.send(results);
+      }).catch((error) => {
+        return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
+      });  
+    }
+
+    if (type === 'visited') {
+      new ArticleService().mostVisited(count).then((result) => {
+        return res.send(result);
+      }).catch((error) => {
+        return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
+      });
+    }
+    
   },
 
   update: (req, res) => {
@@ -38,5 +54,4 @@ module.exports = {
   destroy: (req, res) => {
     res.send('delete');
   }
-
 };
