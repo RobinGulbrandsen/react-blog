@@ -10,8 +10,8 @@ class ArticleService {
     return this.repo.read(id);
   }
 
-  readAll() {
-    return this.repo.readAll();
+  readAll(page, count) {
+    return this.repo.readAll(page, count);
   }
 }
 

@@ -8,8 +8,13 @@ class BaseRepository {
     return this.schema.findOne({where: {id: id}});
   }
 
-  readAll() {
-    return this.schema.all();
+  readAll(page, count) {
+    page = page - 1;
+    if (page > 0) {
+      page = page * count;
+    }
+    console.log(page, count);
+    return this.schema.all({offset: page, limit: count});
   }
 
 }

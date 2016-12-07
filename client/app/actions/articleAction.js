@@ -29,7 +29,7 @@ export const getArticles = () => {
       });
     }).catch((error) => {
       if (error.response && error.response.status === 404) {
-        //hashHistory.push('404');
+        hashHistory.push('404');
       }
     });
   }
