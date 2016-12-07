@@ -13,12 +13,11 @@ class BaseRepository {
     if (page > 0) {
       page = page * count;
     }
-    console.log(page, count);
-    return this.schema.all({offset: page, limit: count});
+    return this.schema.findAll({offset: page, limit: count});
   }
 
   size() {
-    return this.schema.findAndCountAll({}, 1, 1);
+    return this.schema.count({});
   }
 
 }
