@@ -4,7 +4,6 @@ import {hashHistory} from 'react-router';
 export const getArticle = (id) => {
 
   return (dispatch) => {
-
     return axios.get('/api/articles/' + id).then((res) => {
       dispatch({
         type: 'GET_ARTICLE',
@@ -19,10 +18,8 @@ export const getArticle = (id) => {
 }
 
 export const getArticles = (page = 1) => {
-  console.log('getting page', page);
-  
-  return (dispatch) => {
 
+  return (dispatch) => {
     return axios.get('/api/articles?count=3&page=' + page).then((res) => {
       dispatch({
         type: 'GET_ARTICLES',
