@@ -9,10 +9,6 @@ class ArticleListEntry extends React.Component {
 
   constructor(props) {
     super(props);
-    
-    console.log('hello');
-    console.log(this.props.article);
-    this.time = dateFormat(this.props.article.createdAt);
   }
 
   render() {
@@ -24,7 +20,7 @@ class ArticleListEntry extends React.Component {
           </h2>
           <p>
             <span className="glyphicon glyphicon-time"></span>
-            <span> {this.time}</span>
+            <span> {dateFormat(this.props.article.createdAt)}</span>
           </p>
           <p className="bold">
             {this.props.article.intro}

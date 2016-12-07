@@ -2,6 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getArticle} from '../actions/articleAction';
+import dateFormat from '../util/timeFormat';
 
 class Article extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Article extends React.Component {
         <h1>{this.props.article.title}</h1>
         <p>
           <span className='glyphicon glyphicon-time'> </span>
-          {this.props.article.createdAt}
+          <span> {dateFormat(this.props.article.createdAt)}</span>
         </p>
         <hr />
         <div dangerouslySetInnerHTML={this.createMarkup()}></div>
