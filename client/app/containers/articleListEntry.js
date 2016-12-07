@@ -18,7 +18,7 @@ class ArticleListEntry extends React.Component {
         <p className="bold">
           {this.props.article.intro}
         </p>
-        <Link to={'article?id=' + this.props.article.id}>Read More</Link>
+        <Link to={'article/' + this.props.article.id}>Read More</Link>
         <hr />
       </Row>
     </div>);

@@ -7,11 +7,11 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
 
-    this.id = props.location.query.id;
+    this.id = props.params.id;
   }
 
   componentDidMount() {
-    this.props.getArticle();
+    this.props.getArticle(this.id);
   }
 
   createMarkup() {

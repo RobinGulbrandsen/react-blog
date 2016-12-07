@@ -33,7 +33,7 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path='home' component={Home} />
         <Route path='about' component={About} />
-        <Route path='article' component={Article} />
+        <Route path='article/:id' component={Article} />
         <Route path='404' component={FileNotFound} />
       </Route>
     </Router>

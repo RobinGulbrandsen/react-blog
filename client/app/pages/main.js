@@ -17,7 +17,7 @@ export default class Main extends React.Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">RobinGulbrandsen</a>
+              <a href="#/">RobinGulbrandsen</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
