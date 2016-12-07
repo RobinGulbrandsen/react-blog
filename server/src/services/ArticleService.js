@@ -11,7 +11,13 @@ class ArticleService {
   }
 
   readAll(page, count) {
-    return this.repo.readAll(page, count);
+    return Promise.all([this.repo.size(), this.repo.readAll(page, count)])
+    .then((results) => {
+      return Promise.resolve({
+        totalSize: results[0].count,
+        articles: results[1]
+      });
+    });
   }
 }
 

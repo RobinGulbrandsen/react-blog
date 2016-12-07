@@ -13,7 +13,7 @@ class Articles extends React.Component {
     super(props);
 
     this.page = 1;
-    this.pageCount = 3;
+    this.pageCount = 1;
   }
 
   componentDidMount() {
@@ -47,7 +47,7 @@ class Articles extends React.Component {
             {(this.page > 1) ? <Button bsStyle='link' onClick={this.togglePrev.bind(this)}>Previous</Button> : null}
           </Col>
           <Col className='pagecount' sm={8} md={8}>
-            Page {this.page} / {this.pageCount}
+            Page {this.page} / {Math.floor(this.props.totalSize / 3) + 1}
           </Col>
           <Col sm={2} md={2}>
             {(this.page < this.pageCount) ? <Button bsStyle='link' onClick={this.toggleNext.bind(this)}>Next</Button> : null}
@@ -60,7 +60,8 @@ class Articles extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    articles: state.articles
+    articles: (state.articles && state.articles.articles) ? state.articles.articles : null,
+    totalSize: (state.articles && state.articles.totalSize) ? (state.articles.totalSize) : 1,
   };
 }
 

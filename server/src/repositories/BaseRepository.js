@@ -17,6 +17,10 @@ class BaseRepository {
     return this.schema.all({offset: page, limit: count});
   }
 
+  size() {
+    return this.schema.findAndCountAll({}, 1, 1);
+  }
+
 }
 
 module.exports = BaseRepository;
