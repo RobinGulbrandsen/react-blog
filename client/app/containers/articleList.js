@@ -13,7 +13,6 @@ class Articles extends React.Component {
     super(props);
 
     this.page = 1;
-    this.pageCount = 1;
   }
 
   componentDidMount() {
@@ -50,7 +49,9 @@ class Articles extends React.Component {
             Page {this.page} / {Math.floor(this.props.totalSize / 3) + 1}
           </Col>
           <Col sm={2} md={2}>
-            {(this.page < this.pageCount) ? <Button bsStyle='link' onClick={this.toggleNext.bind(this)}>Next</Button> : null}
+            {(this.page < (Math.floor(this.props.totalSize / 3) + 1))
+              ? <Button bsStyle='link' onClick={this.toggleNext.bind(this)}>Next</Button>
+              : null }
           </Col>
         </Row>
       </div>
