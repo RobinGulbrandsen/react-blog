@@ -18,11 +18,12 @@ export const getArticle = (id) => {
   }
 }
 
-export const getArticles = () => {
+export const getArticles = (page = 1) => {
+  console.log('getting page', page);
   
   return (dispatch) => {
 
-    return axios.get('/api/articles').then((res) => {
+    return axios.get('/api/articles?count=3&page=' + page).then((res) => {
       dispatch({
         type: 'GET_ARTICLES',
         payload: res.data

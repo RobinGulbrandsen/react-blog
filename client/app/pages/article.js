@@ -4,13 +4,14 @@ import {connect} from 'react-redux';
 import {getArticle} from '../actions/articleAction';
 
 class Article extends React.Component {
-  constructor({ params: { id }, location: { query } }) {
-    super();
-    this.id = query.id;
+  constructor(props) {
+    super(props);
+
+    this.id = props.location.query.id;
   }
 
   componentDidMount() {
-    this.props.getArticle(this.id);
+    this.props.getArticle();
   }
 
   createMarkup() {
