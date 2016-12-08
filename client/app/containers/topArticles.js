@@ -33,7 +33,7 @@ class TopArticles extends React.Component {
           <ul>
             {this.props.topArticles.map((article) => {
               return (
-                <li key={article.id}>
+                <li className='menu-list' key={article.id}>
                   <Link onClick={() => { this.navigateToArticle(article)}}>
                     {article.article.title}
                   </Link>
