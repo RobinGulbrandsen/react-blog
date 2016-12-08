@@ -5,8 +5,8 @@ class ArticleService {
     this.repo = new ProjectRepository(ProjectModel);
   }
 
-  readAll(page, count, fields) {
-    return this.repo.readAll(page, count, fields);
+  readAll(page, count, fields, orderBy) {
+    return this.repo.readAll(page, count, fields, orderBy);
   }
 
   mostVisited(count) {

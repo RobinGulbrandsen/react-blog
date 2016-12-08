@@ -5,7 +5,7 @@ module.exports = {
 
   readAll: (req, res) => {
     const fields = ['id', 'title', 'description', 'startDate', 'endDate'];
-    new ProjectService().readAll(null, null, fields).then((results) => {
+    new ProjectService().readAll(null, null, fields, 'end').then((results) => {
       return res.send(results);
     }).catch((error) => {
       return HttpStatus.INTERNAL_SERVER_ERROR(res, error);

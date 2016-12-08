@@ -30,7 +30,8 @@ module.exports = {
 
     if (type === 'all') {
       const fields = ['id', 'title', 'createdAt', 'intro'];
-      new ArticleService().readAll(page, count, fields).then((results) => {
+      new ArticleService().readAll(page, count, fields, 'created_at')
+      .then((results) => {
         return res.send(results);
       }).catch((error) => {
         return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
