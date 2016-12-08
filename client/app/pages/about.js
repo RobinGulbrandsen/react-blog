@@ -1,51 +1,91 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import staticText from '../util/static';
+import { getProjects } from '../actions/projectAction';
+import { toMonth } from '../util/timeFormat';
 
 import { Grid,
          Row,
          Col } from 'react-bootstrap';
 
-const About = () => (
-  <div>
-    <h1> About the Author</h1>
-    <Row>
-      <Col sm={12} md={8}>
-        <p>
-          I'm an energeic and dedicated developer with an in-depth knowledge of Java enterprise applications. During my time as a developer, I've had the pleasure of working with a lot of different technologies, solving a varieaty of challenges. I'm also a developer with knowledge of all the different states of a project, from idea, to implementation and maintaining the software after deployment.
-        </p>
-        <p>
-          I have experience with Java, Node, .NET and PHP applications. Though, I prefer to work with Node and Java. I believe that the right tool for a task is just as important as the solution itself.
-        </p>
-        <blockquote>Find the right tool, and the solution will present itself.</blockquote>
-      </Col>
-      <Col sm={12} md={4}>
-        <img src="http://rgulbrandsen.com/assets/profile.jpg" alt="Image of the Autor"/>
-      </Col>
-    </Row>
+class About extends React.Component {
 
-    <Row>
-      <Col sm={12} md={12}>
-        <h2>Core Knowledge</h2>
-      </Col>
-    </Row>
+  constructor(props) {
+    super(props);
+  }
 
-    <Row>
-      <Col sm={12} md={12}>
-        <h2>Previous Experience</h2>
-      </Col>
-    </Row>
+  componentDidMount() {
+    this.props.getProjects();
+  }
 
-    <Row>
-      <Col sm={12} md={12}>
-        <h2>Social Media</h2>
-      </Col>
-    </Row>
+  render() {
+    const projects = this.props.projects || [];
 
-    <Row>
-      <Col sm={12} md={12}>
-        <h2>Contact</h2>
-      </Col>
-    </Row>
-  </div>
-);
+    return (
+      <div>
+        <h1> About the Author</h1>
+        <Row>
+          <Col sm={12} md={8}>
+            <p>
+              {staticText.about.me1}
+            </p>
+            <p>
+              {staticText.about.me2}
+            </p>
+            <blockquote>{staticText.about.quote}</blockquote>
+          </Col>
+          <Col sm={12} md={4}>
+            <img src="http://rgulbrandsen.com/assets/profile.jpg" alt="Image of the Autor"/>
+          </Col>
+        </Row>
 
-export default About;
+        <Row>
+          <Col sm={12} md={12}>
+            <h2>Experience</h2>
+            {projects.map((project) => {
+              return (
+                <div key={project.id}>
+                  <h4>
+                    {project.title}
+                    <span>
+                      <small className='project-start-end'>
+                        {toMonth(project.startDate)} - {toMonth(project.endDate)}
+                      </small>
+                    </span>
+                  </h4>
+                  <p className='project-description'>{project.description}</p>
+                </div>
+              );
+            })}
+
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={12} md={12}>
+            <h2>Social Media</h2>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={12} md={12}>
+            <h2>Contact</h2>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    projects: state.projects
+  };
+}
+
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({ getProjects: getProjects }, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(About);

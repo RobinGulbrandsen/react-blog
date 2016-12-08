@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {connect} from 'react-redux';
-import dateFormat from '../util/timeFormat';
+import { connect } from 'react-redux';
+import { toDate } from '../util/timeFormat';
 
 import { Row } from 'react-bootstrap';
 
@@ -20,7 +20,7 @@ class ArticleListEntry extends React.Component {
           </h2>
           <p>
             <span className="glyphicon glyphicon-time"></span>
-            <span> {dateFormat(this.props.article.createdAt)}</span>
+            <span> {toDate(this.props.article.createdAt)}</span>
           </p>
           <p className="bold">
             {this.props.article.intro}

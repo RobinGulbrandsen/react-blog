@@ -1,4 +1,4 @@
-export default (date) => {
+export const toDate = (date) => {
 
   const months = ["January", "February", "March", "April", "May", "June", 
   "July", "August", "September", "October", "November", "December"];
@@ -18,4 +18,20 @@ export default (date) => {
   const day = Number(date[2]);
 
   return months[month - 1] + ' ' + getOrdinal(day) + ' ' + year;
+};
+
+export const toMonth = (date) => {
+  
+  const months = ["January", "February", "March", "April", "May", "June", 
+  "July", "August", "September", "October", "November", "December"];
+
+  date = date.split('T')[0] || '2016-01-01';
+  date = date.split('-');
+
+  const year = Number(date[0]);
+  const month = Number(date[1]);
+  const day = Number(date[2]);
+
+  return months[month - 1] + ' ' + year;
+
 };
