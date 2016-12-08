@@ -31,7 +31,7 @@ class About extends React.Component {
       <div>
         <h1> About the Author</h1>
         <Row>
-          <Col sm={12} md={8}>
+          <Col sm={8} md={8}>
             <p>
               {staticText.about.me1}
             </p>
@@ -40,7 +40,7 @@ class About extends React.Component {
             </p>
             <blockquote>{staticText.about.quote}</blockquote>
           </Col>
-          <Col sm={12} md={4}>
+          <Col sm={4} md={4}>
             <img src={imageMe} alt='Image of the Autor'/>
           </Col>
         </Row>
@@ -71,17 +71,17 @@ class About extends React.Component {
           <Col sm={12} md={12}>
             <h2>Social Media</h2>
             <Row>
-              <Col sm={12} md={4}>
+              <Col sm={4} md={4}>
                 <a href='http://stackoverflow.com/users/1815544/r-gulbrandsen'>
                   <img src={logoStackoverflow} alt='logo Stackoverflow' />
                 </a>
               </Col>
-              <Col sm={12} md={4}>
+              <Col sm={4} md={4}>
                 <a href='https://no.linkedin.com/in/robin-gulbrandsen'>
                   <img src={logoGithub} alt='logo Github' />
                 </a>
               </Col>
-              <Col sm={12} md={4}>
+              <Col sm={4} md={4}>
                 <a href='http://stackoverflow.com/users/1815544/r-gulbrandsen'>
                   <img src={logoLinkedin} alt='logo Linkedin' />
                 </a>
