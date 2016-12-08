@@ -9,6 +9,10 @@ import { Grid,
          Row,
          Col } from 'react-bootstrap';
 
+import logoStackoverflow from '../../assets/images/stackoverflow.png';
+import logoGithub from '../../assets/images/github-logo.png';
+import logoLinkedin from '../../assets/images/LinkedIn_Logo.png';
+
 class About extends React.Component {
 
   constructor(props) {
@@ -65,6 +69,23 @@ class About extends React.Component {
         <Row>
           <Col sm={12} md={12}>
             <h2>Social Media</h2>
+            <Row>
+              <Col sm={12} md={4}>
+                <a href='http://stackoverflow.com/users/1815544/r-gulbrandsen'>
+                  <img src={logoStackoverflow} alt='logo Stackoverflow' />
+                </a>
+              </Col>
+              <Col sm={12} md={4}>
+                <a href='https://no.linkedin.com/in/robin-gulbrandsen'>
+                  <img src={logoGithub} alt='logo Github' />
+                </a>
+              </Col>
+              <Col sm={12} md={4}>
+                <a href='http://stackoverflow.com/users/1815544/r-gulbrandsen'>
+                  <img src={logoLinkedin} alt='logo Linkedin' />
+                </a>
+              </Col>
+            </Row>
           </Col>
         </Row>
 

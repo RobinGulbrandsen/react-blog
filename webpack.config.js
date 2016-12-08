@@ -18,7 +18,7 @@ module.exports = {
       },
       { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        loader: 'style-loader!css-loader' 
       },
       {
         test: /\.scss/,
@@ -33,7 +33,7 @@ module.exports = {
         loader: 'url?limit=10000&mimetype=application/octet-stream'
       },
       {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+        test: /\.(png|eot(\?v=\d+\.\d+\.\d+)?)$/, 
         loader: 'file'
       },
       {
