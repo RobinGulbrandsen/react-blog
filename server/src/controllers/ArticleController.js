@@ -12,6 +12,7 @@ module.exports = {
 
     new ArticleService().read(id).then((result) => {
       if (result) {
+        new ArticleService().registerGet(req.connection.remoteAddress, result.id);
         return res.send(result);  
       }
       return HttpStatus.NOT_FOUND(res);

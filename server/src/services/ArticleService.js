@@ -9,6 +9,12 @@ class ArticleService {
     this.visitorRepo = new VisitorRepository(VisitorModel);
   }
 
+  registerGet(ip, articleId) {
+    this.visitorRepo.create({id: articleId, visitor: ip}).catch((error) => {
+      //Returning visitor, ignores the constraint error of duplicate rows
+    });
+  }
+
   read(id) {
     return this.articleRepo.read(id);
   }

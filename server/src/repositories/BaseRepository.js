@@ -4,6 +4,10 @@ class BaseRepository {
     this.schema = schema;
   }
 
+  create(object) {
+    return this.schema.create(object);
+  }
+
   read(id) {
     return this.schema.findOne({where: {id: id}});
   }
