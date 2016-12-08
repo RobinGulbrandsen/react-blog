@@ -1,7 +1,11 @@
 import db from './databaseConnection';
 
+import ArticleModel from '../models/ArticleModel';
+import VisitorModel from '../models/VisitorModel';
+
 const initializeModels = () => {
-  //Entity Relation Ships
+  ArticleModel.hasMany(VisitorModel, {foreignKey: 'id'});
+  VisitorModel.belongsTo(ArticleModel, {foreignKey: 'id'});
 };
 
 // Build the models

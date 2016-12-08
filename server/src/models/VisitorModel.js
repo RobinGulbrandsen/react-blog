@@ -11,7 +11,8 @@ const Visitor = db.define('visitor', {
     primaryKey: true
   }
 },{
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false
 });
 
 export default Visitor;

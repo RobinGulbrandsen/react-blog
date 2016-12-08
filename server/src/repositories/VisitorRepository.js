@@ -1,6 +1,8 @@
 import BaseRepository from './BaseRepository';
 import Sequelize from 'sequelize';
 
+import ArticleModel from '../models/ArticleModel';
+
 class VisitorRepositry extends BaseRepository {
   constructor(schema) {
     super(schema);
@@ -8,6 +10,10 @@ class VisitorRepositry extends BaseRepository {
 
   mostVisited(count) {
     return this.schema.findAll({
+      include: [{
+        model: ArticleModel,
+        attributes: ['title']
+      }],
       attributes: ['id',
                     [Sequelize.literal('count(*)'), 'count']],
       group: ['id'],
