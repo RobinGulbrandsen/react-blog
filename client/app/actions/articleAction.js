@@ -33,3 +33,19 @@ export const getArticles = (page = 1) => {
     });
   }
 }
+
+export const getTopArticles = () => {
+
+  return (dispatch) => {
+    return axios.get('/api/articles?type=visited&count=5').then((res) => {
+      dispatch({
+        type: 'GET_TOP_ARTICLES',
+        payload: res.data
+      });
+    }).catch((error) => {
+      if (error.response && error.response.status === 404) {
+        hashHistory.push('404');
+      }
+    });
+  }
+}

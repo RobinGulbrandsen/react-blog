@@ -1,5 +1,4 @@
 export default (date) => {
-  console.log('formatting', date);
 
   const months = ["January", "February", "March", "April", "May", "June", 
   "July", "August", "September", "October", "November", "December"];
