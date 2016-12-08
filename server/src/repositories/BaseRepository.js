@@ -9,7 +9,7 @@ class BaseRepository {
   }
 
   readAll(page, count, fields) {
-    page = page - 1;
+    page = (page === null) ? 0 : page - 1;
     if (page > 0) {
       page = page * count;
     }

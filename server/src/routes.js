@@ -1,4 +1,5 @@
 import ArticleController from './controllers/ArticleController';
+import ProjectsController from './controllers/ProjectController';
 //var UserController = require('./controllers/UserController');
 
 module.exports = function (app) {
@@ -9,6 +10,9 @@ module.exports = function (app) {
   app.post('/api/articles',         ArticleController.create);
   app.put('/api/articles',          ArticleController.update);
   app.delete('/api/articles/:id',   ArticleController.destroy);
+
+  //////// ARTICLES ////////////
+  app.get('/api/projects',          ProjectsController.readAll);
 
 /*
   ///////// USERS //////////////
