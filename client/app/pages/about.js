@@ -12,6 +12,7 @@ import { Grid,
 import logoStackoverflow from '../../assets/images/stackoverflow.png';
 import logoGithub from '../../assets/images/github-logo.png';
 import logoLinkedin from '../../assets/images/LinkedIn_Logo.png';
+import imageMe from '../../assets/images/me.jpg';
 
 class About extends React.Component {
 
@@ -40,7 +41,7 @@ class About extends React.Component {
             <blockquote>{staticText.about.quote}</blockquote>
           </Col>
           <Col sm={12} md={4}>
-            <img src="http://rgulbrandsen.com/assets/profile.jpg" alt="Image of the Autor"/>
+            <img src={imageMe} alt='Image of the Autor'/>
           </Col>
         </Row>
 
