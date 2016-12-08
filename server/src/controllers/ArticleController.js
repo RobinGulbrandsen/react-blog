@@ -30,7 +30,7 @@ module.exports = {
 
     if (type === 'all') {
       const fields = ['id', 'title', 'createdAt', 'intro'];
-      new ArticleService().readAll(page, count, fields, 'created_at')
+      new ArticleService().readAll(page, count, fields, 'createdAt')
       .then((results) => {
         return res.send(results);
       }).catch((error) => {
