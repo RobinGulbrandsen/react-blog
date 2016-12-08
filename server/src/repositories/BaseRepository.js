@@ -26,8 +26,8 @@ class BaseRepository {
     });
   }
 
-  size() {
-    return this.schema.count({});
+  size(where) {
+    return this.schema.count({where : where});
   }
 
 }

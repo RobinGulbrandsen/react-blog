@@ -20,7 +20,7 @@ class ArticleService {
   }
 
   readAll(page, count, fields, orderBy, where) {
-    return Promise.all([this.articleRepo.size(),
+    return Promise.all([this.articleRepo.size(where),
                         this.articleRepo.readAll(page, count, fields, orderBy, where)])
     .then((results) => {
       return Promise.resolve({
