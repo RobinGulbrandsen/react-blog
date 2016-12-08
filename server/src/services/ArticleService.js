@@ -19,9 +19,9 @@ class ArticleService {
     return this.articleRepo.read(id);
   }
 
-  readAll(page, count, fields, orderBy) {
+  readAll(page, count, fields, orderBy, where) {
     return Promise.all([this.articleRepo.size(),
-                        this.articleRepo.readAll(page, count, fields, orderBy)])
+                        this.articleRepo.readAll(page, count, fields, orderBy, where)])
     .then((results) => {
       return Promise.resolve({
         totalSize: results[0],
