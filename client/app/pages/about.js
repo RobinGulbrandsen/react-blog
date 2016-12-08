@@ -93,6 +93,7 @@ class About extends React.Component {
         <Row>
           <Col sm={12} md={12}>
             <h2>Contact</h2>
+            <p>Feel free to contact me at: robin@123.no</p>
           </Col>
         </Row>
       </div>
