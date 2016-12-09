@@ -31,17 +31,14 @@ class About extends React.Component {
       <div>
         <h1> About the Author</h1>
         <Row>
-          <Col xs={8} sm={8} md={8}>
+          <Col xs={12}>
+            <img className='pull-right author-image' src={imageMe} alt='Image of the Author' />
             <p>
               {staticText.about.me1}
-            </p>
-            <p>
+              <br/>
               {staticText.about.me2}
             </p>
             <blockquote>{staticText.about.quote}</blockquote>
-          </Col>
-          <Col xs={4} sm={4} md={4}>
-            <img src={imageMe} alt='Image of the Autor'/>
           </Col>
         </Row>
 
