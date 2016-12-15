@@ -17,17 +17,20 @@ export default class Main extends React.Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#/">RobinGulbrandsen</a>
+              <a href='#/'>RobinGulbrandsen</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <LinkContainer to="home">
+              <LinkContainer to='home'>
                 <NavItem eventKey={1}>Home</NavItem>
               </LinkContainer>
-              <LinkContainer to="about">
+              <LinkContainer to='about'>
                 <NavItem eventKey={2}>About</NavItem>
+              </LinkContainer>
+              <LinkContainer to='admin'>
+                <NavItem eventKey={3}>Admin</NavItem>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
@@ -44,6 +47,7 @@ export default class Main extends React.Component {
             </Col>
           </Row>
         </Grid>
+
       </div>
     );
   }
