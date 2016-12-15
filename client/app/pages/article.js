@@ -4,6 +4,17 @@ import { connect } from 'react-redux';
 import { getArticle } from '../actions/articleAction';
 import { toDate } from '../util/timeFormat';
 
+
+import { Navbar,
+         Nav,
+         NavItem,
+         Grid,
+         Row,
+         Col } from 'react-bootstrap';
+
+import AboutMeSmall from '../containers/aboutMeSmall';
+import TopArticles from '../containers/topArticles';
+
 class Article extends React.Component {
   constructor(props) {
     super(props);
@@ -23,20 +34,28 @@ class Article extends React.Component {
     if (!this.props.article) {
       return (
         <div>
-          <h1>Loading.. please wait</h1>
+          <Row>
+            <h1 className='center'>Loading.. please wait</h1>
+          </Row>
         </div>
       );
     }
 
     return (
       <div>
-        <h1>{this.props.article.title}</h1>
-        <p>
-          <span className='glyphicon glyphicon-time'> </span>
-          <span> {toDate(this.props.article.createdAt)}</span>
-        </p>
-        <hr />
-        <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+        <Col sm={12} md={8}>
+          <h1>{this.props.article.title}</h1>
+          <p>
+            <span className='glyphicon glyphicon-time'> </span>
+            <span> {toDate(this.props.article.createdAt)}</span>
+          </p>
+          <hr />
+          <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+        </Col>
+        <Col sm={12} md={4}>
+          <AboutMeSmall />
+          <TopArticles />
+        </Col>
       </div>
     );
   }

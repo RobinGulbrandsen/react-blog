@@ -1,14 +1,12 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
+
 import { Navbar,
          Nav,
          NavItem,
          Grid,
          Row,
          Col } from 'react-bootstrap';
-
-import AboutMeSmall from '../containers/aboutMeSmall';
-import TopArticles from '../containers/topArticles';
 
 export default class Main extends React.Component {
   render() {
@@ -38,16 +36,9 @@ export default class Main extends React.Component {
 
         <Grid>
           <Row>
-            <Col sm={12} md={8}>
-              {this.props.children}
-            </Col>
-            <Col sm={12} md={4}>
-              <AboutMeSmall />
-              <TopArticles />
-            </Col>
+            {this.props.children}
           </Row>
         </Grid>
-
       </div>
     );
   }
