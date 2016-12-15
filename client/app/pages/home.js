@@ -16,7 +16,9 @@ class Home extends React.Component {
     return (
       <div>
         <Col sm={12} md={8}>
-          <ArticleList />
+          <Col sm={12}>
+            <ArticleList />
+          </Col>
         </Col>
         <Col sm={12} md={4}>
           <AboutMeSmall />
