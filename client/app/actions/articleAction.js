@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {hashHistory} from 'react-router';
+import { hashHistory } from 'react-router';
 
 export const getArticle = (id) => {
 
