@@ -2,12 +2,19 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import DatabaseConfig from './config/databaseConfig';
 import passportConfig from './config/passportConfig';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import config from './config/config';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));
+app.use(cookieParser());
+app.use(session({
+  secret: config.secret
+}));
 
 passportConfig(app);
 

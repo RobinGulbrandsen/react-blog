@@ -46,6 +46,18 @@ module.exports = {
         return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
       });
     }
+
+    if (type === 'admin') {
+      if (!req.user || req.user.role !== 'admin') {
+        return res.sendStatus(401);
+      }
+      new ArticleService().readAll(page, count, null, 'createdAt', {})
+      .then((results) => {
+        return res.send(results);
+      }).catch((error) => {
+        return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
+      }); 
+    }
     
   },
 

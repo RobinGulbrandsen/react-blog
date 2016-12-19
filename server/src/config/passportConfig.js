@@ -8,11 +8,13 @@ module.exports = (app) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  passport.serializeUser((user, done) => {
+  passport.serializeUser(function (user, done) {
+    console.log('serializeUser', user.username);
     done(null, user.username);
   });
 
-  passport.deserializeUser((username, done) => {
+  passport.deserializeUser(function (username, done) {
+    console.log('username', username);
     User.findOne({where: {username: username}}).then((user) => {
       done(null, user);
     }).catch((error) => {
@@ -20,7 +22,8 @@ module.exports = (app) => {
     });
   });
 
-  passport.use(new LocalStrategy((username, password, done) => {
+  passport.use(new LocalStrategy(function (username, password, done) {
+    console.log('seaching for user', username);
     User.findOne({where: {username: username}}).then((user) => {
       if (!user || !user.validatePassword(password)) {
         return done(null, false);
