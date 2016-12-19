@@ -1,8 +1,10 @@
 import ArticleController from './controllers/ArticleController';
 import ProjectsController from './controllers/ProjectController';
-//var UserController = require('./controllers/UserController');
+import UserController from './controllers/UserController';
 
-module.exports = function (app) {
+import passport from 'passport';
+
+module.exports = (app) => {
 
   //////// ARTICLES ////////////
   app.get('/api/articles',          ArticleController.readAll);
@@ -14,11 +16,9 @@ module.exports = function (app) {
   //////// ARTICLES ////////////
   app.get('/api/projects',          ProjectsController.readAll);
 
-/*
-  ///////// USERS //////////////
-  app.post('/api/users/login',  UserController.login);
-  app.post('/api/users/signup', UserController.signup);
-
-  app.get('/api/users',         UserController.readAll);
-*/
+  //////// USERS ////////////
+  app.post('/api/logout',           UserController.logout);
+  app.post('/api/signup',           UserController.signup);
+  app.post('/api/login', passport.authenticate('local', { successRedirect: '/#/admin',
+                                                          failureRedirect: '/#/login' }));
 };

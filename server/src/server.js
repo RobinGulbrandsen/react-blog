@@ -1,12 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import DatabaseConfig from './config/databaseConfig';
+import passportConfig from './config/passportConfig';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));
+
+passportConfig(app);
 
 require('./routes.js')(app);
 
