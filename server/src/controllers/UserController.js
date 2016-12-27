@@ -3,6 +3,10 @@ import User from '../models/UserModel';
 
 module.exports = {
 
+  login: (req, res) => {
+    res.sendStatus(200);
+  },
+
   logout: (req, res) => {
     req.logout();
     res.sendStatus(200);

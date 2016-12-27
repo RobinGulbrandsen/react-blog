@@ -18,13 +18,7 @@ const User = db.define('user', {
   },
 },{
   freezeTableName: true,
-  timestamps: false,
-  instanceMethods: {
-    validatePassword: function(password) {
-      console.log('validating password', this.password, password);
-      return true;
-    }
-  }
+  timestamps: false
 });
 
 export default User;

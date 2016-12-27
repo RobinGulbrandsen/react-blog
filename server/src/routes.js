@@ -19,6 +19,5 @@ module.exports = (app) => {
   //////// USERS ////////////
   app.post('/api/logout',         UserController.logout);
   app.post('/api/signup',         UserController.signup);
-  app.post('/api/login', passport.authenticate('local', { successRedirect: '/#/admin',
-                                                          failureRedirect: '/#/login' }));
+  app.post('/api/login', passport.authenticate('local'), UserController.login);
 };

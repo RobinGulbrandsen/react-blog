@@ -7,33 +7,6 @@ module.exports = () => {
 
   const userRepo = new Repository(User);
 
-  const login = (user) => {
-    return userRepo.read(user.username).then((foundUser) => {
-      if (!foundUser) {
-        return Promise.reject({
-          'status': 400,
-          'message': 'invalid username or password'
-        });
-      }
-
-      if (foundUser.comparePasswords(user.password)) {
-        const authenticated = {
-          token: jwt.encode(foundUser, config.secret),
-          user: foundUser
-        };
-        return Promise.resolve(authenticated);
-      } else {
-        return Promise.reject({
-          'status': 400,
-          'message': 'invalid username or password'
-        }); 
-      }
-    })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
-  };
-
   const register = (user) => {
     return userRepo.read(user.username).then((foundUser) => {
       if (foundUser) {
