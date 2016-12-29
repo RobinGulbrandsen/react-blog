@@ -27,6 +27,7 @@ import Admin from './pages/admin';
 import Main from './pages/main';
 import FileNotFound from './pages/error/fileNotFound';
 import Login from './pages/login';
+import ArticleForm from './pages/forms/articleForm';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -39,6 +40,7 @@ ReactDOM.render(
         <Route path='admin' component={Admin} />
         <Route path='404' component={FileNotFound} />
         <Route path='login' component={Login} />
+        <Route path='forms/article' component={ArticleForm} />
       </Route>
     </Router>
   </Provider>,

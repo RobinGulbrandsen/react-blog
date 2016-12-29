@@ -1,8 +1,10 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router';
 
 import { getArticles } from '../actions/adminAction';
+import { getArticle } from '../actions/articleAction';
 import { getProjects } from '../actions/projectAction';
 
 import { Button } from 'react-bootstrap';
@@ -18,12 +20,14 @@ class Admin extends React.Component {
     this.props.getProjects();
   }
 
-  editArticle(id, e) {
-    console.log('id', id);
+  editArticle(id) {
+    this.props.getArticle(id).then((result) => {
+      hashHistory.push('forms/article');
+    });
   }
 
   render() {
-    if (!this.props.articles) {
+    if (!this.props.articles || !this.props.projects) {
       return (
         <div>
           <h1>Loading</h1>
@@ -70,6 +74,7 @@ class Admin extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    article: state.article,
     articles: state.articles,
     projects: state.projects
   };
@@ -78,7 +83,8 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch){
   return bindActionCreators({
     getArticles: getArticles,
-    getProjects: getProjects
+    getProjects: getProjects,
+    getArticle: getArticle
   }, dispatch);
 }
 
