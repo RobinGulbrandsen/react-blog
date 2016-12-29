@@ -10,7 +10,6 @@ export const getProjects = () => {
         payload: res.data
       });
     }).catch((error) => {
-      console.log(error);
       if (error.response && error.response.status === 404) {
         hashHistory.push('404');
       }

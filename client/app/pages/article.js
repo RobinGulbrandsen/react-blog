@@ -49,6 +49,9 @@ class Article extends React.Component {
             <span className='glyphicon glyphicon-time'> </span>
             <span> {toDate(this.props.article.createdAt)}</span>
           </p>
+          <p className="bold">
+            {this.props.article.intro}
+          </p>
           <hr />
           <div dangerouslySetInnerHTML={this.createMarkup()}></div>
         </Col>

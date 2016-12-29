@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import { toDate } from '../../util/timeFormat';
 
+import { addArticle } from '../../actions/articleAction';
+
 class ArticleForm extends React.Component {
 
   constructor(props) {
@@ -53,12 +55,13 @@ class ArticleForm extends React.Component {
   }
 
   cancelForm() {
-    console.log('cancel');
     hashHistory.push('admin');
   }
 
   createOrUpdate() {
-    console.log('article', this.state.article); 
+    addArticle(this.state.article).then((res) => {
+      hashHistory.push('admin');
+    });
   }
 
   createMarkup() {
@@ -152,6 +155,9 @@ class ArticleForm extends React.Component {
         <p>
           <span className='glyphicon glyphicon-time'> </span>
           <span> {toDate(this.state.article.createdAt)}</span>
+        </p>
+        <p className="bold">
+          {this.props.article.intro}
         </p>
         <hr />
         <div dangerouslySetInnerHTML={this.createMarkup()}></div>

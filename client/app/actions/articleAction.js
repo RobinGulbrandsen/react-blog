@@ -47,3 +47,12 @@ export const getTopArticles = () => {
     });
   }
 }
+
+export const addArticle = (article) => {
+  console.log('article', article);
+  return axios.post('/api/articles', article).catch((error) => {
+    if (error.response && error.response.status === 401) {
+      hashHistory.push('login');
+    }
+  });
+}
