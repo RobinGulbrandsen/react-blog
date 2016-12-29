@@ -9,7 +9,7 @@ module.exports = (app) => {
   //////// ARTICLES ////////////
   app.get('/api/articles',        ArticleController.readAll);
   app.get('/api/articles/:id',    ArticleController.read);
-  app.post('/api/articles',       ArticleController.create);
+  app.post('/api/articles',       ArticleController.createOrUpdate);
   app.put('/api/articles',        ArticleController.update);
   app.delete('/api/articles/:id', ArticleController.destroy);
 

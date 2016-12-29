@@ -33,6 +33,15 @@ class ArticleService {
   mostVisited(count) {
     return this.visitorRepo.mostVisited(count);
   }
+
+  createOrUpdate(article) {
+    return this.articleRepo.read(article.id).then((savedArticle) => {
+      if (!savedArticle) {
+        return this.articleRepo.create(article);
+      }
+      return this.articleRepo.update(article);
+    });
+  }
 }
 
 module.exports = ArticleService;

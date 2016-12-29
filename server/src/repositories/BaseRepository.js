@@ -30,6 +30,10 @@ class BaseRepository {
     return this.schema.count({where : where});
   }
 
+  update(object) {
+    return this.schema.update(object, {where: {id: object.id}});
+  }
+
 }
 
 module.exports = BaseRepository;

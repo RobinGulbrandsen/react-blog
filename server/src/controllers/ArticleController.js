@@ -3,8 +3,30 @@ import ArticleService from '../services/ArticleService';
 
 module.exports = {
 
-  create: (req, res) => {
-    res.send('create');
+  createOrUpdate: (req, res) => {
+    //Role === admin
+
+    const article = req.body;
+    //Validate Article
+    if (article === undefined ||
+        article.id === undefined || article.id.trim().length === 0 ||
+        article.title === undefined || article.title.trim().length === 0 ||
+        article.createdAt === undefined || article.createdAt.trim().length === 0 ||
+        article.intro === undefined || article.intro.trim().length === 0 ||
+        article.content === undefined || article.content.trim().length === 0) {
+      return HttpStatus.BAD_REQUEST(res, 'object must have the following structure: {' +
+        'id: STRING,' +
+        'title: STRING,' +
+        'reatedAt: DATE (yyyy-mm-dd),' +
+        'intro: STRING,' +
+        'content: STRING}');
+    }
+
+    new ArticleService().createOrUpdate(article).then((result) => {
+      return res.send(result);
+    }).catch((error) => {
+      return HttpStatus.INTERNAL_SERVER_ERROR(res, error);
+    });
   },
 
   read: (req, res) => {
