@@ -2,10 +2,9 @@ import axios from 'axios';
 import { hashHistory } from 'react-router';
 
 export const getArticles = () => {
-  console.log('fetching articles as admin');
-
   return (dispatch) => {
-    return axios.get('/api/articles?type=admin').then((res) => {
+    return axios.get('/api/articles?type=admin&count=' + Number.MAX_SAFE_INTEGER)
+    .then((res) => {
       dispatch({
         type: 'GET_ARTICLES',
         payload: res.data

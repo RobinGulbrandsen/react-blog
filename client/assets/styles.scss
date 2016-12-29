@@ -61,3 +61,27 @@ ul {
 .form-control {
   padding: 4px;
 }
+
+.right {
+  float: right;
+}
+
+.table {
+  width: 100%;
+}
+
+.table-row {
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+  padding-left: 6px;
+}
+
+.table-row:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.table-row:nth-child(odd) {
+  background-color: #DF691A;
+}

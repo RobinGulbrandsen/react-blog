@@ -48,7 +48,6 @@ module.exports = {
     }
 
     if (type === 'admin') {
-      console.log('getting all as admin', req.user);
       if (!req.user || req.user.role !== 'admin') {
         return res.sendStatus(401);
       }
