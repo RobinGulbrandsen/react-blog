@@ -12,16 +12,23 @@ class ArticleForm extends React.Component {
     super(props);
 
     this.state = {
-      article: {}
+      article: {
+        id: '',
+        title: '',
+        createdAt: undefined,
+        visible: false,
+        intro: '',
+        content: ''
+      },
+      create: true
     };
   }
 
   componentDidMount() {
-    if (!this.props.article) {
-      return hashHistory.push('admin');
+    if (this.props.article) {
+      this.setState({create: false});
+      this.setState({article: this.props.article});
     }
-
-    this.setState({article: this.props.article});
   }
 
   handleChangeId(event) {
@@ -69,9 +76,6 @@ class ArticleForm extends React.Component {
   }
 
   render() {
-    if (!this.props.article) {
-      return (<div>Loading</div>);
-    }
     return (
       <div>
         <div className='form-horizontal'>
@@ -157,7 +161,7 @@ class ArticleForm extends React.Component {
           <span> {toDate(this.state.article.createdAt)}</span>
         </p>
         <p className="bold">
-          {this.props.article.intro}
+          {this.state.article.intro}
         </p>
         <hr />
         <div dangerouslySetInnerHTML={this.createMarkup()}></div>
