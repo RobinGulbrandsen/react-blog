@@ -46,10 +46,10 @@ class Articles extends React.Component {
             {(this.page > 1) ? <Button bsStyle='link' onClick={this.togglePrev.bind(this)}>Previous</Button> : null}
           </Col>
           <Col className='pagecount' sm={8} md={8}>
-            Page {this.page} / {Math.ceil(this.props.totalSize / 3)}
+            Page {this.page} / {Math.ceil(this.props.totalSize / 4)}
           </Col>
           <Col sm={2} md={2}>
-            {(this.page < (Math.ceil(this.props.totalSize / 3)))
+            {(this.page < (Math.ceil(this.props.totalSize / 4)))
               ? <Button bsStyle='link' onClick={this.toggleNext.bind(this)}>Next</Button>
               : null }
           </Col>

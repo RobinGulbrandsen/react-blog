@@ -66,15 +66,22 @@ ul {
   float: right;
 }
 
-.table {
-  width: 100%;
+.table-head {
+  margin: 0px;
+  border-bottom: 1px solid #DF691A;
 }
 
 .table-row {
-  font-size: 16px;
   margin: 0px;
-  padding: 4px;
-  padding-left: 6px;
+
+  p {
+    margin: 0px;
+    padding: 4px;
+  }
+
+  input[type='checkbox'] {
+    margin: 8px;
+  }
 }
 
 .table-row:hover {

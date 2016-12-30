@@ -19,7 +19,7 @@ export const getArticle = (id) => {
 export const getArticles = (page = 1) => {
 
   return (dispatch) => {
-    return axios.get('/api/articles?count=3&page=' + page).then((res) => {
+    return axios.get('/api/articles?count=4&page=' + page).then((res) => {
       dispatch({
         type: 'GET_ARTICLES',
         payload: res.data

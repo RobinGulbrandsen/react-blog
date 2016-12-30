@@ -75,7 +75,7 @@ module.exports = {
       if (!req.user || req.user.role !== 'admin') {
         return res.sendStatus(401);
       }
-      const fields = ['id', 'title', 'createdAt'];
+      const fields = ['id', 'title', 'createdAt', 'visible'];
       new ArticleService().readAll(page, count, fields, 'createdAt', {})
       .then((results) => {
         return res.send(results);

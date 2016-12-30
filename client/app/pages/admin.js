@@ -7,7 +7,7 @@ import { getArticles } from '../actions/adminAction';
 import { getArticle } from '../actions/articleAction';
 import { getProjects } from '../actions/projectAction';
 
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 
 class Admin extends React.Component {
 
@@ -24,6 +24,10 @@ class Admin extends React.Component {
     this.props.getArticle(id).then((result) => {
       hashHistory.push('forms/article');
     });
+  }
+
+  editProject(id) {
+    console.log('edit project');
   }
 
   createArticle() {
@@ -48,31 +52,54 @@ class Admin extends React.Component {
             Create New
           </Button>
         </h1>
-        <div className='table panel panel-default'>
-          {this.props.articles.articles.map((article) => {
-            return (
-            <p key={article.id}
+        
+        <Row className='table-head'>
+          <Col sm={11} md={11}>
+            <h4>Title</h4> 
+          </Col>
+          <Col sm={1} md={1}>
+            <h4>Visible</h4>
+          </Col>
+        </Row>
+        
+        {this.props.articles.articles.map((article) => {
+          return (
+          <Row key={article.id}
                className='table-row'
                onClick={(e) => this.editArticle(article.id)}>
-              {article.title}
-            </p>);
-          })}
-        </div>
+            <Col sm={11} md={11}>
+              <p>{article.title}</p> 
+            </Col>
+            <Col sm={1} md={1}>
+              <input type='checkbox'
+                     checked={article.visible} />
+            </Col>
+          </Row>);
+        })}
+          
         <h1>
           Projects
           <Button className='btn btn-success right'>
             Create New
           </Button>
         </h1>
-        <div className='table panel panel-default'>
-          {this.props.projects.map((project) => {
-            return (
-              <p className='table-row'
-                 key={project.id}>
-                {project.title}
-              </p>);
-          })}
-        </div>
+      
+        <Row className='table-head'>
+          <Col sm={12} md={12}>
+            <h4>Title</h4> 
+          </Col>
+        </Row>
+      
+        {this.props.projects.map((project) => {
+          return (
+            <Row key={project.id}
+                 className='table-row'
+                 onClick={(e) => this.editProject(project.id)}>
+              <Col sm={12} md={12}>
+                <p>{project.title}</p> 
+              </Col>
+            </Row>);
+        })}
       </div>
     );  
   }
