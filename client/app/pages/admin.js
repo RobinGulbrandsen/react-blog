@@ -26,6 +26,11 @@ class Admin extends React.Component {
     });
   }
 
+  createArticle() {
+    this.setState({article: null});
+    hashHistory.push('forms/article');
+  }
+
   render() {
     if (!this.props.articles || !this.props.projects) {
       return (
@@ -38,7 +43,8 @@ class Admin extends React.Component {
       <div>
         <h1>
           Articles 
-          <Button className='btn btn-success right'>
+          <Button className='btn btn-success right'
+                  onClick={this.createArticle.bind(this)}>
             Create New
           </Button>
         </h1>

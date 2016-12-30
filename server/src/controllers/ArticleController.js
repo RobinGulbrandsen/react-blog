@@ -4,7 +4,9 @@ import ArticleService from '../services/ArticleService';
 module.exports = {
 
   createOrUpdate: (req, res) => {
-    //Role === admin
+    if (!req.user || req.user.role !== 'admin') {
+      return res.sendStatus(401);
+    }
 
     const article = req.body;
     //Validate Article
