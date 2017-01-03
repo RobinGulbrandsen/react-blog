@@ -22,7 +22,7 @@ module.exports = (app) => {
 
   passport.use(new LocalStrategy(function (username, password, done) {
     User.findOne({where: {username: username}}).then((user) => {
-      if (!user || user.password !== password) {
+      if (!user || !user.validPassword(password)) {
         return done(null, false);
       }
       return done(null, user);
