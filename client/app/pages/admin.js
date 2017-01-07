@@ -86,7 +86,8 @@ class Admin extends React.Component {
           
         <h1>
           Projects
-          <Button className='btn btn-success right'>
+          <Button className='btn btn-success right'
+                  onClick={this.createProject.bind(this)}>
             Create New
           </Button>
         </h1>

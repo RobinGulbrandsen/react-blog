@@ -46,7 +46,7 @@ class ArticleForm extends React.Component {
   }
 
   handleChangeDescription(event) {
-    this.state.project.intro = event.target.value;
+    this.state.project.description = event.target.value;
     this.setState({project: this.state.project});
   }
 
