@@ -1,5 +1,5 @@
 import ArticleController from './controllers/ArticleController';
-import ProjectsController from './controllers/ProjectController';
+import ProjectController from './controllers/ProjectController';
 import UserController from './controllers/UserController';
 
 import passport from 'passport';
@@ -10,11 +10,10 @@ module.exports = (app) => {
   app.get('/api/articles',        ArticleController.readAll);
   app.get('/api/articles/:id',    ArticleController.read);
   app.post('/api/articles',       ArticleController.createOrUpdate);
-  app.put('/api/articles',        ArticleController.update);
-  app.delete('/api/articles/:id', ArticleController.destroy);
 
-  //////// ARTICLES ////////////
-  app.get('/api/projects',        ProjectsController.readAll);
+  //////// PROJECTS ////////////
+  app.get('/api/projects',        ProjectController.readAll);
+  app.post('/api/projects',       ProjectController.createOrUpdate);
 
   //////// USERS ////////////
   app.post('/api/logout',         UserController.logout);

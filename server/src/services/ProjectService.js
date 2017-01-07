@@ -12,6 +12,15 @@ class ArticleService {
   mostVisited(count) {
     return this.visitorRepo.mostVisited(count);
   }
+
+  createOrUpdate(project) {
+    return this.repo.read(project.id).then((savedProject) => {
+      if (!savedProject) {
+        return this.repo.create(project);
+      }
+      return this.repo.update(project);
+    })
+  }
 }
 
 module.exports = ArticleService;

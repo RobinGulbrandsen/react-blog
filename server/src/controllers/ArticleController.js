@@ -1,4 +1,5 @@
-import HttpStatus from './HttpStatus';
+import HttpStatus from './util/HttpStatus';
+import Validator from './util/Validator';
 import ArticleService from '../services/ArticleService';
 
 module.exports = {
@@ -11,11 +12,11 @@ module.exports = {
     const article = req.body;
     //Validate Article
     if (article === undefined ||
-        article.id === undefined || article.id.trim().length === 0 ||
-        article.title === undefined || article.title.trim().length === 0 ||
-        article.createdAt === undefined || article.createdAt.trim().length === 0 ||
-        article.intro === undefined || article.intro.trim().length === 0 ||
-        article.content === undefined || article.content.trim().length === 0) {
+        Validator.isStringEmpty(article.id) ||
+        Validator.isStringEmpty(article.title) ||
+        Validator.isStringEmpty(createdAt) ||
+        Validator.isStringEmpty(intro) ||
+        Validator.isStringEmpty(content)) {
       return HttpStatus.BAD_REQUEST(res, 'object must have the following structure: {' +
         'id: STRING,' +
         'title: STRING,' +
@@ -84,13 +85,5 @@ module.exports = {
       }); 
     }
     
-  },
-
-  update: (req, res) => {
-    res.send('update');
-  },
-
-  destroy: (req, res) => {
-    res.send('delete');
   }
 };

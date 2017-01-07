@@ -16,8 +16,7 @@ const Project = db.define('project', {
   },
   endDate: {
     type: Sequelize.DATE,
-    field: 'end',
-    defaultValue: Sequelize.NOW
+    field: 'end'
   } 
 },{
   freezeTableName: true,
