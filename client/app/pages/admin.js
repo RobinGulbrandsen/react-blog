@@ -5,7 +5,7 @@ import { hashHistory } from 'react-router';
 
 import { getArticles } from '../actions/adminAction';
 import { getArticle } from '../actions/articleAction';
-import { getProjects } from '../actions/projectAction';
+import { getProjects, getProject } from '../actions/projectAction';
 
 import { Button, Row, Col } from 'react-bootstrap';
 
@@ -27,12 +27,19 @@ class Admin extends React.Component {
   }
 
   editProject(id) {
-    console.log('edit project');
+    this.props.getProject(id).then((result) => {
+      hashHistory.push('forms/project');
+    })
   }
 
   createArticle() {
     this.setState({article: null});
     hashHistory.push('forms/article');
+  }
+
+  createProject() {
+    this.setState({project: null});
+    hashHistory.push('forms/project');
   }
 
   render() {
@@ -109,15 +116,17 @@ function mapStateToProps(state) {
   return {
     article: state.article,
     articles: state.articles,
+    project: state.project,
     projects: state.projects
   };
 }
 
 function matchDispatchToProps(dispatch){
   return bindActionCreators({
+    getArticle: getArticle,
     getArticles: getArticles,
-    getProjects: getProjects,
-    getArticle: getArticle
+    getProject: getProject,
+    getProjects: getProjects
   }, dispatch);
 }
 

@@ -28,6 +28,7 @@ import Main from './pages/main';
 import FileNotFound from './pages/error/fileNotFound';
 import Login from './pages/login';
 import ArticleForm from './pages/forms/articleForm';
+import ProjectForm from './pages/forms/projectForm';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -41,6 +42,7 @@ ReactDOM.render(
         <Route path='404' component={FileNotFound} />
         <Route path='login' component={Login} />
         <Route path='forms/article' component={ArticleForm} />
+        <Route path='forms/project' component={ProjectForm} />
       </Route>
     </Router>
   </Provider>,

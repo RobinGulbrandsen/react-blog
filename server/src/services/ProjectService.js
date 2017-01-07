@@ -5,6 +5,10 @@ class ArticleService {
     this.repo = new ProjectRepository(ProjectModel);
   }
 
+  read(id) {
+    return this.repo.read(id);
+  }
+
   readAll(page, count, fields, orderBy) {
     return this.repo.readAll(page, count, fields, orderBy);
   }

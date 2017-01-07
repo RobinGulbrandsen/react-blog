@@ -24,6 +24,9 @@ export const toDate = (date) => {
 };
 
 export const toMonth = (date) => {
+  if (!date) {
+    return '';
+  }
   
   const months = ["January", "February", "March", "April", "May", "June", 
   "July", "August", "September", "October", "November", "December"];
@@ -38,3 +41,13 @@ export const toMonth = (date) => {
   return months[month - 1] + ' ' + year;
 
 };
+
+export const pastDate = (date) => {
+  const inputDate = new Date(date);
+  const now = new Date();
+
+  if (inputDate > now) {
+    return 'current';
+  }
+  return toMonth(date);
+}

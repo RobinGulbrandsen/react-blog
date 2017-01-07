@@ -13,6 +13,7 @@ module.exports = (app) => {
 
   //////// PROJECTS ////////////
   app.get('/api/projects',        ProjectController.readAll);
+  app.get('/api/projects/:id',    ProjectController.read);
   app.post('/api/projects',       ProjectController.createOrUpdate);
 
   //////// USERS ////////////
