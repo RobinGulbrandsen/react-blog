@@ -5,12 +5,14 @@ import passportConfig from './config/passportConfig';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import config from './config/config';
+import robots from 'robots.txt';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('./public'));
+app.use(robots('./public/robots.txt'));
 app.use(cookieParser());
 app.use(session({
   secret: config.secret
