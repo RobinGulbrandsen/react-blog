@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import staticText from '../util/static';
 import { getProjects } from '../actions/projectAction';
-import { toMonth } from '../util/timeFormat';
+import { toMonth, pastDate } from '../util/timeFormat';
 
 import { Grid,
          Row,
@@ -57,7 +57,7 @@ class About extends React.Component {
                       {project.title}
                       <span>
                         <small className='project-start-end'>
-                          {toMonth(project.startDate)} - {toMonth(project.endDate)}
+                          {toMonth(project.startDate)} - {pastDate(project.endDate)}
                         </small>
                       </span>
                     </h4>
